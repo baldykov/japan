@@ -53,11 +53,13 @@ img {
 .wrapper {
     max-width: 1060px;
     margin: 0 auto;
+    padding: 0 15px;
 }
 
 .wrapper-full {
     max-width: 1260px;
     margin: 0 auto;
+    padding: 0 15px;
 }
 
 .section-title {
@@ -103,6 +105,34 @@ img {
     padding-top: 56px;
 }
 
+.header__burger {
+    display: none;
+    width: 40px;
+    height: 29px;
+    position: relative;
+}
+
+.burger__line {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+}
+
+.burger__line_first {
+    top: 0;
+}
+
+.burger__line_second {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.burger__line_third {
+    bottom: 0;
+}
+
 .nav__list {
     display: flex;
     flex-wrap: wrap;    
@@ -125,6 +155,35 @@ img {
 
 .nav__link:hover, .nav__link:focus, .nav__link:active {
     opacity: .75;
+}
+
+.header__nav-close {
+    display: none;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 15px;
+    top: 56px;
+    z-index: 11;
+}
+
+.header__nav-close-line {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background-color: #fff;
+}
+
+.header__nav-close-line:first-child {
+    transform: rotate(45deg);
+}
+
+.header__nav-close-line:last-child {
+    transform: rotate(-45deg);
 }
 
 /* Header end */
@@ -577,3 +636,51 @@ img {
     opacity: .75;
 }
 /* Footer end */
+
+/* Media start */
+
+@media screen and (max-width: 767px) {
+    .header__burger {
+        display: block;
+    }
+
+    .header__nav {
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(#000, #000) no-repeat 20vw top;
+        z-index: 10;
+        padding: 75px;
+        padding-left: 30%;
+        transform: translateX(100%);
+        transition: .2s all linear;
+        backdrop-filter: blur(4px);
+    }
+
+    .header__nav_active {
+        transform: translateX(0);
+    }
+
+    .header__nav-close {
+        display: block;
+    }
+
+    .nav__item {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 25px;
+    }
+
+    .nav__item:last-child {
+        margin-bottom: 0;
+    }
+
+    .nav__link {
+        font-size: 40px;
+        line-height: 42px;
+    }
+}
+
+/* Media end */
