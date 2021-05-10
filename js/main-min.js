@@ -14,29 +14,33 @@
       .querySelector(".header__nav-close")
       .addEventListener("click", () => {
         t.classList.remove("header__nav_active");
-      });
+      }),
+    t.addEventListener("click", (e) => {
+      e.target.classList.contains("nav__link") &&
+        t.classList.remove("header__nav_active");
+    });
 })(),
   document.querySelectorAll(".js-scroll").forEach((e) => {
     e.addEventListener("click", function () {
       !(function (e, t) {
-        const c = document.querySelector(".header").clientHeight;
-        let n = document.querySelector(e).getBoundingClientRect().top - c,
+        const n = document.querySelector(".header").clientHeight;
+        let c = document.querySelector(e).getBoundingClientRect().top - n,
           r = window.pageYOffset,
-          o = null;
-        const a = function (e) {
-          null === o && (o = e);
-          const c = e - o,
+          a = null;
+        const o = function (e) {
+          null === a && (a = e);
+          const n = e - a,
             i =
-              ((s = c),
+              ((s = n),
               (d = r),
-              (l = n),
+              (l = c),
               (s /= t / 2) < 1
                 ? (l / 2) * s * s + d
                 : (-l / 2) * (--s * (s - 2) - 1) + d);
           var s, d, l;
-          window.scrollTo(0, i), c < t && requestAnimationFrame(a);
+          window.scrollTo(0, i), n < t && requestAnimationFrame(o);
         };
-        requestAnimationFrame(a);
+        requestAnimationFrame(o);
       })(this.getAttribute("href"), 1e3);
     });
   });

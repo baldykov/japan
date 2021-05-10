@@ -1,13 +1,13 @@
 "use strict";
 
 (function () {
-  const header = document.querySelector('.header');
+  const header = document.querySelector(".header");
 
   window.onscroll = () => {
     if (window.pageYOffset > 50) {
-      header.classList.add('header_active');
+      header.classList.add("header_active");
     } else {
-      header.classList.remove('header_active');
+      header.classList.remove("header_active");
     }
   };
 
@@ -20,9 +20,15 @@
   close.addEventListener("click", () => {
     nav.classList.remove("header__nav_active");
   });
-})(); // Scroll to anchors
 
+  nav.addEventListener("click", (e) => {
+    if (e.target.classList.contains("nav__link")) {
+      nav.classList.remove("header__nav_active");
+    }
+  });
+})(); 
 
+// Scroll to anchors
 (function () {
   const smoothScroll = function (targetEl, duration) {
     const headerElHeight = document.querySelector('.header').clientHeight;
